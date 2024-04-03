@@ -62,18 +62,12 @@ class PaqueteController extends Controller
      */
     public function edit($id)
 {
-    $Paquete = Paquete::find($id);
+    $Paquete = Paquete::with('vivienda')->findOrFail($id);
+    $viviendas = Vivienda::all(); // Cambiado el nombre de la variable para evitar conflictos de nombres
 
-    // Verificar si el paquete existe
-    if (!$Paquete) {
-        // Manejar el caso en el que el paquete no existe, por ejemplo, redireccionando a una página de error
-        return redirect()->route('error_page')->with('message', 'El paquete no existe');
-    }
-
-    $vivienda = Vivienda::all();
-
-    return view('Paquete.edit', compact('Paquete', 'vivienda'));
+    return view('Paquete.edit', compact('Paquete', 'viviendas'));
 }
+
 
 
     /**

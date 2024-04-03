@@ -55,11 +55,11 @@
                         </div>
 
                         <div class="mb-3">
-                        <label for="vivienda_id" class="form-label">Vivienda</label>
+                            <label for="vivienda_id" class="form-label"> Vivienda</label>
                             <select id="vivienda_id" name="vivienda_id" class="form-control">
                                 <option disabled selected>------Seleccionar------</option>
-                                @foreach($Paquete as $paquete)
-                                <option value="{{ $paquete->vivienda->id }}">{{ $paquete->vivienda->nomenclatura }}</option>
+                                @foreach($viviendas as $vivienda)
+                                <option value="{{ $vivienda->id }}" @if($vivienda->id == $Paquete->vivienda_id) selected @endif>{{ $vivienda->nomenclatura }}</option>
                                 @endforeach
                             </select>
 
