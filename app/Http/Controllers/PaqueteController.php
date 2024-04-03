@@ -60,12 +60,21 @@ class PaqueteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Paquete $paquete, $id)
-    {
-        $paquete = Paquete::find($id);
-        $vivienda = vivienda::all();
-        return view ("Paquete.edit",compact('paquete','vivienda'));  //
+    public function edit($id)
+{
+    $Paquete = Paquete::find($id);
+
+    // Verificar si el paquete existe
+    if (!$Paquete) {
+        // Manejar el caso en el que el paquete no existe, por ejemplo, redireccionando a una página de error
+        return redirect()->route('error_page')->with('message', 'El paquete no existe');
     }
+
+    $vivienda = Vivienda::all();
+
+    return view('Paquete.edit', compact('Paquete', 'vivienda'));
+}
+
 
     /**
      * Update the specified resource in storage.

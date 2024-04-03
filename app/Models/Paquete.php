@@ -18,9 +18,10 @@ class Paquete extends Model
         'estado',];
 
         public function vivienda()
-    {
-        return $this->belongsTo(Vivienda::class);
-    }
+        {
+            return $this->belongsTo(Vivienda::class);
+        }
+        
 }
 
 

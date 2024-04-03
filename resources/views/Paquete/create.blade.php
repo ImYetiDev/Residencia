@@ -55,7 +55,7 @@
                         <div class="mb-3">
                             <label for="vivienda_id" class="form-label">Vivienda</label>
                             <select id="vivienda_id" name="vivienda_id" class="form-control">
-                                <option>------Seleccionar------</option>
+                                <option disabled selected>------Seleccionar------</option>
                                 @foreach($Paquete as $paquete)
                                 <option value="{{ $paquete->vivienda->id }}">{{ $paquete->vivienda->nomenclatura }}</option>
                                 @endforeach
