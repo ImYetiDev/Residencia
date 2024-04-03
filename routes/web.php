@@ -24,17 +24,6 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::resource('Bloque', BloqueController::class);
-Route::resource('Evento', EventoController::class);
-Route::resource('Paquete', PaqueteController::class);
-Route::resource('Permisos', PermisosController::class); 
-Route::resource('Reserva', ReservaController::class);
-Route::resource('Residente', ResidenteController::class);
-Route::resource('TiposVivienda', TiposViviendaController::class);
-Route::resource('Usuario', UsuarioController::class);
-Route::resource('Vivienda', ViviendaController::class);
-Route::resource('ZonasComun', ZonasComunController::class);
-
 
 Route::get('/', function () {
     if(Auth::check()){
@@ -61,6 +50,17 @@ Route::get('/register', function(){
 Route::post('/register', [LoginController::class, 'register']);
 Route::post('/check', [LoginController::class, 'check']);
 
+
+Route::resource('Bloque', BloqueController::class);
+Route::resource('Evento', EventoController::class);
+Route::resource('Paquete', PaqueteController::class);
+Route::resource('Permisos', PermisosController::class); 
+Route::resource('Reserva', ReservaController::class);
+Route::resource('Residente', ResidenteController::class);
+Route::resource('TiposVivienda', TiposViviendaController::class);
+Route::resource('Usuario', UsuarioController::class);
+Route::resource('Vivienda', ViviendaController::class);
+Route::resource('ZonasComun', ZonasComunController::class);
 
 
 
