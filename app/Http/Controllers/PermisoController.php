@@ -21,9 +21,11 @@ class PermisoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('Permiso.Create'); //
+    public function create(){
+        $Permiso = Permiso::all();
+        $Vivienda = Vivienda::all();
+    
+        return view('Permiso.Create', compact('Permiso','Vivienda')); //
     }
 
     /**
@@ -54,8 +56,10 @@ class PermisoController extends Controller
      */
     public function edit(Permiso $permiso, $id)
     {
-        $permiso = Permiso::find($id);
-        return view ("Permiso.edit",compact('permiso')); //
+        $Permiso = Permiso::with('vivienda')->findOrFail($id);
+        $viviendas = Vivienda::all();
+
+    return view('Paquete.edit', compact('Permiso', 'viviendas'));
     }
 
     /**

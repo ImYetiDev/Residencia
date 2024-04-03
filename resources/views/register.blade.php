@@ -53,7 +53,7 @@
                             <a href="#" class="">
                                 <h3 class="text-success"><i class="fa fa-user-edit me-2"></i>DarkPan</h3>
                             </a>
-                            <h3>Sign Up</h3>
+                            <h3>Registrar</h3>
                         </div>
 
 

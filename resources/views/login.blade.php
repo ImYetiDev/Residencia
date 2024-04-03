@@ -21,7 +21,7 @@
                             <a href="#" class="">
                                 <h3 class="text-success"><i class="fa fa-user-edit me-2"></i>Residencia</h3>
                             </a>
-                            <h3>Sign In</h3>
+                            <h3>Inicia Sesion</h3>
                         </div>
 
                         <form action="check" method="POST">
@@ -29,17 +29,15 @@
 
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
+                            <label for="floatingInput">Correo Electronico</label>
                         </div>
                         <div class="form-floating mb-4">
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
+                            <label for="floatingPassword">Contraseña</label>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <a href="#">Forgot Password</a>
-                        </div>
-                        <button type="submit" class="btn btn-success py-3 w-100 mb-4">Sign In</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="register">Sign Up</a></p>
+                       
+                        <button type="submit" class="btn btn-success py-3 w-100 mb-4" >Iniciar Sesion</button>
+                        <p class="text-center mb-0">No tienes una cuenta? <a href="register">Registrar</a></p>
                     </div>
 
                     </form>

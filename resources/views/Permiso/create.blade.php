@@ -1,4 +1,4 @@
-@section('title', 'Crear Paquete')
+@section('title', 'Crear Permiso')
 @include('header')
 
 <body>
@@ -12,32 +12,32 @@
     @include('cards')
 
     <script>
-            function cambiarFondo(selected) {
-                var selected = document.getElementById(selected);
+        function cambiarFondo(selected) {
+            var selected = document.getElementById(selected);
 
-                // Cambiar el fondo del elemento
-                selected.classList.remove('bg-secondary');
-                selected.classList.add('bg-success');
-            }
+            // Cambiar el fondo del elemento
+            selected.classList.remove('bg-secondary');
+            selected.classList.add('bg-success');
+        }
 
-            function cambiarIcono(icon) {
-                var icon = document.getElementById(icon);
+        function cambiarIcono(icon) {
+            var icon = document.getElementById(icon);
 
-                // Cambiar el icono de color
-                icon.classList.remove('text-success');
-                icon.classList.add('text-secondary');
-            }
+            // Cambiar el icono de color
+            icon.classList.remove('text-success');
+            icon.classList.add('text-secondary');
+        }
 
-            function cambiarTexto(texto) {
-                // Obtener el texto y cambiar su color
-                var texto = document.getElementById(texto);
-                texto.classList.add('text-dark');
-            }
+        function cambiarTexto(texto) {
+            // Obtener el texto y cambiar su color
+            var texto = document.getElementById(texto);
+            texto.classList.add('text-dark');
+        }
 
-            cambiarFondo('permiso');
-            cambiarIcono('permisoIcon');
-            cambiarTexto('permisoText');
-        </script>
+        cambiarFondo('permiso');
+        cambiarIcono('permisoIcon');
+        cambiarTexto('permisoText');
+    </script>
 
     <!-- Recent Sales Start -->
     <div class="container-fluid pt-4 px-4">
@@ -48,8 +48,13 @@
                     <form action="{{ url('Permiso')}}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="vivienda_id_permiso" class="form-label">ID de Vivienda</label>
-                            <input type="number" class="form-control" id="vivienda_id_permiso" name="vivienda_id_permiso" required>
+                            <label for="vivienda_id" class="form-label">Vivienda</label>
+                            <select id="vivienda_id" name="vivienda_id" class="form-control">
+                                <option disabled selected>------Seleccionar------</option>
+                                @foreach($Permiso as $permiso)
+                                <option value="{{ $permiso->vivienda->id }}">{{ $permiso->vivienda->nomenclatura }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mb-3">

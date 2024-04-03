@@ -14,8 +14,8 @@ class PaqueteController extends Controller
     public function index()
     {
         
-        $Vivienda = Vivienda::all();
         $Paquete = Paquete::all();
+        $Vivienda = Vivienda::all();
 
         return view('Paquete.index', compact('Paquete','Vivienda'));
     }
@@ -63,7 +63,7 @@ class PaqueteController extends Controller
     public function edit($id)
 {
     $Paquete = Paquete::with('vivienda')->findOrFail($id);
-    $viviendas = Vivienda::all(); // Cambiado el nombre de la variable para evitar conflictos de nombres
+    $viviendas = Vivienda::all();
 
     return view('Paquete.edit', compact('Paquete', 'viviendas'));
 }

@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/* 
+
 Route::get('/', function () {
     if(Auth::check()){
         return redirect('residentes');}
@@ -41,7 +41,7 @@ Route::get('/login', function () {
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('residentes');
-}); */
+}); 
 
 Route::post('/register', [LoginController::class, 'register']);
 Route::post('/check', [LoginController::class, 'check']);

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Vivienda;
 
 class Permiso extends Model
 {
@@ -14,4 +15,9 @@ class Permiso extends Model
         'nombre visitante',
         'documento visitante',
         'estado',];
+
+        public function vivienda()
+{
+    return $this->belongsTo(Vivienda::class);
+}
 }
