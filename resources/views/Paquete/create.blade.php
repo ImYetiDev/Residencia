@@ -78,7 +78,7 @@
                             <input type="text" class="form-control" id="estado" name="estado" required>
                         </div>
 
-                        <button type="submit" class="btn btn-warning">Crear Paquete</button>
+                        <button type="submit" class="btn btn-success">Crear Paquete</button>
                     </form>
 
 

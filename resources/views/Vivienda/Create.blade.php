@@ -26,8 +26,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="bloque_id" class="form-label">ID de Bloque</label>
-                            <input type="number" class="form-control" id="bloque_id" name="bloque_id" required>
+                            <label for="vivienda_id" class="form-label">Bloque</label>
+                            <select id="vivienda_id" name="vivienda_id" class="form-control">
+                                <option disabled selected>------Seleccionar------</option>
+                                @foreach($Vivienda as $vivienda)
+                                <option value="{{ $vivienda->bloque->id }}">{{ $vivienda->bloque->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mb-3">
@@ -40,7 +45,7 @@
                             <input type="text" class="form-control" id="telefono" name="telefono">
                         </div>
 
-                        <button type="submit" class="btn btn-secondary">Crear Vivienda</button>
+                        <button type="submit" class="btn btn-success">Crear Vivienda</button>
                     </form>
 
                 </div>

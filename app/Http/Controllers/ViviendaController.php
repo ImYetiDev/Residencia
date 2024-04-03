@@ -22,8 +22,10 @@ class ViviendaController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('Vivienda.Create'); //
+    {   $Vivienda = Vivienda::all();
+        $bloque = Bloque::all();
+
+        return view('Vivienda.Create', compact('bloque','Vivienda')); //
     }
 
     /**

@@ -26,7 +26,7 @@ class LoginController extends Controller
        if (Auth::attempt($request->except('_token'))) {
         $request->session()->regenerate();
 
-        return redirect()->intended('Bloque');
+        return redirect()->intended('residentes');
         
     }
     return back()->withErrors([

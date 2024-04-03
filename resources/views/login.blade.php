@@ -1,6 +1,24 @@
 @section('title', 'Login')
 @include('header')
  
+
+
+
+<style>
+ 
+ .error{
+    color: red;
+    text-align: center;
+    font-size: .9rem;
+    padding: 2px 0;
+    border: 1px solid red;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+ }
+
+</style>
+
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
@@ -27,8 +45,14 @@
                         <form action="check" method="POST">
                         @csrf
 
+                        @error( 'email' )
+                        <div class="error">
+                            {{ $message }}
+                        </div>
+                        @enderror
+
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email" required autofocus>
+                            <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email" required autofocus value="{{ old('email') }}">
                             <label for="floatingInput">Correo Electronico</label>
                         </div>
                         <div class="form-floating mb-4">

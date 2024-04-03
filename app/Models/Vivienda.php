@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Paquete;
-use App\Models\Permisos;
+use App\Models\Bloque;
 
 class Vivienda extends Model
 {
@@ -24,5 +24,9 @@ public function paquete()
     return $this->belongsTo(Paquete::class);
 }
 
+public function bloque()
+{
+    return $this->belongsTo(Bloque::class);
+}
 
 }
