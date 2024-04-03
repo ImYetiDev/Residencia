@@ -19,10 +19,6 @@ class Vivienda extends Model
         'telefono',];
 
 
-public function paquete()
-{
-    return $this->belongsTo(Paquete::class);
-}
 
 public function bloque()
 {

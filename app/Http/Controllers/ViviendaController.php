@@ -56,11 +56,13 @@ class ViviendaController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        $vivienda = Vivienda::find($id);
-        $Bloque = Bloque::all();
-        return redirect()->route('Vivienda.edit');   //
-    }
+{
+    $Viviendas = Vivienda::with('bloque')->findOrFail($id);
+    $bloques = Bloque::all();
+
+    return view('Vivienda.edit', compact('Viviendas', 'bloques'));
+}
+
 
     /**
      * Update the specified resource in storage.

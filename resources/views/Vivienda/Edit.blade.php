@@ -17,23 +17,32 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded h-100 p-4">
                     <h6 class="mb-4">Formulario Editar Vivienda</h6>
-                    <form action="{{ route('Vivienda.update', $vivienda->id) }}" method="POST">
+                    <form action="{{ route('Vivienda.update', $Viviendas->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="mb-3">
                             <label for="nomenclatura" class="form-label">Nomenclatura</label>
-                            <input type="text" class="form-control" id="nomenclatura" name="nomenclatura" required value="{{ old('nomenclatura', $vivienda->nomenclatura) }}">
+                            <input type="text" class="form-control" id="nomenclatura" name="nomenclatura" required value="{{ old('nomenclatura', $Viviendas->nomenclatura) }}">
                         </div>
 
                         <div class="mb-3">
-                            <label for="bloque_id" class="form-label">ID de Bloque</label>
-                            <input type="number" class="form-control" id="bloque_id" name="bloque_id" required value="{{ old('bloque_id', $vivienda->bloque_id) }}">
+                            <label for="bloque_id" class="form-label"> Viviendas</label>
+                            <select id="bloque_id" name="bloque_id" class="form-control">
+                                <option disabled selected>------Seleccionar------</option>
+                                @foreach($bloques as $bloque) <!-- Utiliza $bloques en lugar de $bloque -->
+                                <option value="{{ $bloque->id }}" @if($bloque->id == $Viviendas->bloque_id) selected @endif>{{ $bloque->nombre }}</option>
+                                @endforeach
+                            </select>
+
                         </div>
+
+
+
 
                         <div class="mb-3">
                             <label for="estado" class="form-label">Estado</label>
-                            <input type="text" class="form-control" id="estado" name="estado" required value="{{ old('estado', $vivienda->estado) }}">
+                            <input type="text" class="form-control" id="estado" name="estado" required value="{{ old('estado', $Viviendas->estado) }}">
                         </div>
 
                         <button type="submit" class="btn btn-success">Guardar Cambios</button>
