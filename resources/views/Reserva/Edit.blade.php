@@ -50,9 +50,14 @@
                         @method('PUT')
 
                         <div class="mb-3">
-                            <label for="zona_comun_id" class="form-label">ID de Zona Común</label>
-                            <input type="number" class="form-control" id="zona_comun_id" name="zona_comun_id" required value="{{ old('zona_comun_id', $reserva->zona_comun_id) }}">
-                        </div>
+    <label for="zona_comun_id" class="form-label">Zona Comun</label>
+    <select id="zona_comun_id" name="zona_comun_id" class="form-control">
+        <option disabled selected>------Seleccionar------</option>
+        @foreach($zonas_comunes as $zona_comun)
+            <option value="{{ $zona_comun->id }}" @if(old('zona_comun_id', $reserva->zona_comun_id) == $zona_comun->id) selected @endif>{{ $zona_comun->nombre }}</option>
+        @endforeach
+    </select>
+</div>
 
                         <div class="mb-3">
                             <label for="fecha_reserva" class="form-label">Fecha de Reserva</label>
@@ -65,9 +70,14 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="residente_id" class="form-label">ID de Residente</label>
-                            <input type="number" class="form-control" id="residente_id" name="residente_id" required value="{{ old('residente_id', $reserva->residente_id) }}">
-                        </div>
+    <label for="residente_id" class="form-label">Residente</label>
+    <select id="residente_id" name="residente_id" class="form-control">
+        <option disabled selected>------Seleccionar------</option>
+        @foreach($residentes as $residente)
+            <option value="{{ $residente->id }}" @if(old('residente_id', $reserva->residente_id) == $residente->id) selected @endif>{{ $residente->nombre }}</option>
+        @endforeach
+    </select>
+</div>
 
                         <div class="mb-3">
                             <label for="estado" class="form-label">Estado</label>

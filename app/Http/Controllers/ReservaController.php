@@ -62,8 +62,11 @@ class ReservaController extends Controller
      */
     public function edit(Reserva $reserva, $id)
     {
-        $reserva = Reserva::find($id);
-        return view ("Reserva.edit",compact('reserva')); //
+        $reserva = Reserva::with('residente', 'Zonas_comun')->findOrFail($id);
+        $zonas_comunes = ZonasComun::all();
+        $residentes = Residente::all();
+        
+        return view ("Reserva.edit", compact('reserva', 'zonas_comunes', 'residentes'));
     }
 
     /**
