@@ -54,7 +54,7 @@
                         </div>
                        
                         <button type="submit" class="btn btn-success py-3 w-100 mb-4" >Registrarse</button>
-                        <p class="text-center mb-0">No tienes una cuenta? <a href="\register">Registrar</a></p>
+                        <p class="text-center mb-0">ya tienes una cuenta? <a href="\login">Iniciar sesion</a></p>
                     </div>
 
                     </form>
