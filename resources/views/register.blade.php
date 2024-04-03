@@ -58,23 +58,20 @@
 
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="jhondoe">
-                            <label for="floatingText">Username</label>
+                            <input type="text" class="form-control" id="floatingText" placeholder="Nombre" name="nombre" required autofocus>
+                            <label for="floatingText">Nombre de Usuario</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
+                            <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email" required>
+                            <label for="floatingInput">Correo Electronico</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                            <label for="floatingPassword">Contraseña</label>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            
-                            <a href="">Forgot Password</a>
-                        </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                        <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
+
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Registrarse</button>
+                        <p class="text-center mb-0">Ya tienes una cuenta? <a href="/login">Inicia Sesion</a></p>
                     </div>
                     </form>
 

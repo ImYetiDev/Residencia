@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Vivienda;
 
-class Permiso extends Model
+class Permisos extends Model
 {
     use HasFactory;
 
     protected $table = 'permisos';
     protected $fillable = [
-        'nombre visitante',
-        'documento visitante',
+        'vivienda_id',
+        'nombre_visitante',
+        'documento_visitante',
         'estado',];
 
         public function vivienda()

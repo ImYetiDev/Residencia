@@ -1,4 +1,4 @@
-@section('title', 'Crear Permiso')
+@section('title', 'Crear Permisos')
 @include('header')
 
 <body>
@@ -6,7 +6,7 @@
     @include('sidebar')
 
 
-    @section('tabla', 'Crear Paquete')
+    @section('tabla', 'Crear Paquetes')
     @include('navbar')
 
     @include('cards')
@@ -44,17 +44,20 @@
         <div class="bg-secondary text-center rounded p-4">
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded h-100 p-4">
-                    <h6 class="mb-4">Formulario de Permisos</h6>
-                    <form action="{{ url('Permiso')}}" method="POST">
+                    <h6 class="mb-4">Formulario de Paquetes</h6>
+                    <form action="{{ url('Permisos')}}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="vivienda_id" class="form-label">Vivienda</label>
+                            <label for="vivienda_id" class="form-label"> Vivienda</label>
                             <select id="vivienda_id" name="vivienda_id" class="form-control">
-                                <option disabled selected>------Seleccionar------</option>
-                                @foreach($Permiso as $permiso)
-                                <option value="{{ $permiso->vivienda->id }}">{{ $permiso->vivienda->nomenclatura }}</option>
+                            <option disabled selected>------Seleccionar------</option>
+                                @foreach($viviendas as $vivienda)
+                                <option value="{{ $vivienda->id }}" @if($vivienda->id == $Permisos->first()->vivienda_id)  @endif>{{ $vivienda->nomenclatura }}</option>
                                 @endforeach
                             </select>
+
+
+
                         </div>
 
                         <div class="mb-3">
@@ -68,12 +71,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="estado_permiso" class="form-label">Estado del Permiso</label>
-                            <input type="text" class="form-control" id="estado_permiso" name="estado_permiso" required>
+                            <label for="estado" class="form-label">Estado</label>
+                            <input type="text" class="form-control" id="estado" name="estado" required>
                         </div>
 
-                        <button type="submit" class="btn btn-success">Crear Permiso</button>
+                        <button type="submit" class="btn btn-warning">Crear Permiso</button>
                     </form>
+
 
 
 

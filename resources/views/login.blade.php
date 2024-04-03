@@ -28,16 +28,16 @@
                         @csrf
 
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email" required autofocus>
                             <label for="floatingInput">Correo Electronico</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
                             <label for="floatingPassword">Contraseña</label>
                         </div>
                        
                         <button type="submit" class="btn btn-success py-3 w-100 mb-4" >Iniciar Sesion</button>
-                        <p class="text-center mb-0">No tienes una cuenta? <a href="register">Registrar</a></p>
+                        <p class="text-center mb-0">No tienes una cuenta? <a href="\register">Registrar</a></p>
                     </div>
 
                     </form>

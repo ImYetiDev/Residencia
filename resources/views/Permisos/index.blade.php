@@ -43,17 +43,18 @@
                 texto.classList.add('text-dark');
             }
 
-            cambiarFondo('permiso');
-            cambiarIcono('permisoIcon');
-            cambiarTexto('permisoText');
+            cambiarFondo('bloque');
+            cambiarIcono('bloqueIcon');
+            cambiarTexto('bloqueText');
         </script>
+
 
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">TABLA PERMISO</h6>
-                        <a href="{{ route('Permiso.create') }}">
+                        <h6 class="mb-0">TABLA BLOQUES</h6>
+                        <a href="{{ route('Permisos.create') }}">
                         <i class="bi bi-plus-circle-dotted text-success fa-3x"></i>
                         </a>
                     </div>
@@ -64,7 +65,7 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Vivienda Id</th>
                                 <th scope="col">Nombre Visitante</th>
-                                <th scope="col">Documento Visitante</th>
+                                <th scope="col">Documento visitante</th>
                                 <th scope="col">Estado</th>
                                 <th scope="col">Creado en</th>
                                 <th scope="col">Actualizado en</th>
@@ -78,16 +79,16 @@
                                 <td>{{ $dato->id }}</td>
                                     <td>{{ $dato->vivienda_id }}</td>
                                     <td>{{ $dato->nombre_visitante }}</td>
-                                    <td>{{ $dato->documento_visitante }}</td>
+                                    <td>{{ $dato->documento_visitante}}</td>
                                     <td>{{ $dato->estado }}</td>
                                     <td>{{ $dato->created_at }}</td>
                                     <td>{{ $dato->updated_at }}</td>
-                                    <td>
-                                    <a href="{{ route('Permiso.edit', $dato->id) }}" class="btn btn-warning" style="display: inline-block">
+									<td>
+                                    <a href="{{ route('Permisos.edit', $dato->id) }}" class="btn btn-warning" style="display: inline-block">
                                         Editar</a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('Permiso.destroy', $dato->id) }}" method="POST" style="display: inline-block">
+                                    <form action="{{ route('Permisos.destroy', $dato->id) }}" method="POST" style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" onclick="return confirm('¿Realmente quiere eliminar el registro?')" type="submit">Eliminar</button>
@@ -109,7 +110,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
+                                <h6 class="mb-0">Calender pene</h6>
                                 <a href="">Show All</a>
                             </div>
                             <div id="calender"></div>
