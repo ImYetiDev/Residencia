@@ -20,4 +20,5 @@ class Residente extends Model
         'email propietario',
         'estado',];
     
-}
+        
+    }

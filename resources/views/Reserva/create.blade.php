@@ -12,32 +12,32 @@
     @include('cards')
 
     <script>
-            function cambiarFondo(selected) {
-                var selected = document.getElementById(selected);
+        function cambiarFondo(selected) {
+            var selected = document.getElementById(selected);
 
-                // Cambiar el fondo del elemento
-                selected.classList.remove('bg-secondary');
-                selected.classList.add('bg-success');
-            }
+            // Cambiar el fondo del elemento
+            selected.classList.remove('bg-secondary');
+            selected.classList.add('bg-success');
+        }
 
-            function cambiarIcono(icon) {
-                var icon = document.getElementById(icon);
+        function cambiarIcono(icon) {
+            var icon = document.getElementById(icon);
 
-                // Cambiar el icono de color
-                icon.classList.remove('text-success');
-                icon.classList.add('text-secondary');
-            }
+            // Cambiar el icono de color
+            icon.classList.remove('text-success');
+            icon.classList.add('text-secondary');
+        }
 
-            function cambiarTexto(texto) {
-                // Obtener el texto y cambiar su color
-                var texto = document.getElementById(texto);
-                texto.classList.add('text-dark');
-            }
+        function cambiarTexto(texto) {
+            // Obtener el texto y cambiar su color
+            var texto = document.getElementById(texto);
+            texto.classList.add('text-dark');
+        }
 
-            cambiarFondo('reserva');
-            cambiarIcono('reservaIcon');
-            cambiarTexto('reservaText');
-        </script>
+        cambiarFondo('reserva');
+        cambiarIcono('reservaIcon');
+        cambiarTexto('reservaText');
+    </script>
 
     <!-- Recent Sales Start -->
     <div class="container-fluid pt-4 px-4">
@@ -49,8 +49,14 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label for="zona_comun_id" class="form-label">ID de Zona Común</label>
-                            <input type="number" class="form-control" id="zona_comun_id" name="zona_comun_id" required>
+                            <label for="vivienda_id" class="form-label">Zona Comun</label>
+                            <select id="zona_comun_id" name="zona_comun_id" class="form-control">
+                                <option disabled selected>------Seleccionar------</option>
+                                @foreach($zonas_comunes as $zona_comun)
+                                <option value="{{ $zona_comun->id }}">{{ $zona_comun->nombre }}</option>
+                                @endforeach
+                            </select>
+
                         </div>
 
                         <div class="mb-3">
@@ -64,8 +70,14 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="residente_id" class="form-label">ID de Residente</label>
-                            <input type="number" class="form-control" id="residente_id" name="residente_id" required>
+                            <label for="residente_id" class="form-label">Residente</label>
+                            <select id="residente_id" name="residente_id" class="form-control">
+                                <option disabled selected>------Seleccionar------</option>
+                                @foreach($residentes as $residente)
+                                <option value="{{ $residente->id }}">{{ $residente->nombre }}</option>
+                                @endforeach
+                            </select>
+
                         </div>
 
                         <div class="mb-3">

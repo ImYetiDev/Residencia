@@ -11,9 +11,9 @@ class ZonasComunController extends Controller
      */
     public function index()
     {
-        $zonasComun = ZonasComun::all();
+        $Zonas_comun = ZonasComun::all();
         
-        return view('ZonasComun.index', compact('zonasComun',));  //
+        return view('ZonasComun.index', compact('Zonas_comun',));  //
     }
 
     /**

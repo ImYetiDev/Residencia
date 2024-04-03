@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reserva;
+use App\Models\Residente;
 use App\Models\ZonasComun;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,10 @@ class ReservaController extends Controller
     public function index()
     {
         $Reserva = Reserva::all();
-        $zonasComun = zonasComun::all();
+        $zonasComun = ZonasComun::all();
+        $residente = Residente::all();
         
-        return view('Reserva.index', compact('Reserva', 'zonasComun'));
+        return view('Reserva.index', compact('Reserva', 'zonasComun', 'residente'));
     }
 
     /**
@@ -24,7 +26,11 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        return view('Reserva.Create');//
+        $Reserva = Reserva::all();
+        $zonas_comunes = ZonasComun::all();
+        $residentes = Residente::all();
+        
+        return view('Reserva.Create', compact('Reserva', 'zonas_comunes', 'residentes'));
     }
 
     /**
