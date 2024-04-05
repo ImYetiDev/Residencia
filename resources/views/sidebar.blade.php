@@ -19,7 +19,7 @@
                     <a href="{{route('Bloque.index')}}" class="nav-item nav-link"><i class="bi bi-house"></i> Bloques</a>
                     <a href="{{route('Evento.index')}}" class="nav-item nav-link"><i class="bi bi-calendar-event"></i>Eventos</a>
                     <a href="{{route('Paquete.index')}}" class="nav-item nav-link"><i class="bi bi-box-seam"></i>Paquetes</a>
-                    <a href="{{route('Permisos.index')}}" class="nav-item nav-link"><i class="bi bi-bar-chart-steps"></i>Permisos</a>
+                    <a href="{{route('Permiso.index')}}" class="nav-item nav-link"><i class="bi bi-bar-chart-steps"></i>Permisos</a>
                     <a href="{{route('Reserva.index')}}" class="nav-item nav-link"><i class="bi bi-book"></i>Reservas</a>
                     <a href="{{route('Residente.index')}}" class="nav-item nav-link"><i class="bi bi-person-circle"></i>Residentes</a>
                     <a href="{{route('TiposVivienda.index')}}" class="nav-item nav-link"><i class="bi bi-shop-window"></i>Tipos Viviendas</a>

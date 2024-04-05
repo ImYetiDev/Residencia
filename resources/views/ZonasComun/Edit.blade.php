@@ -1,4 +1,4 @@
-@section('title', 'Usuarios')
+@section('title', 'Zonas Comunes')
 @include('header')
 
 <body>
@@ -6,7 +6,7 @@
     @include('sidebar')
 
 
-    @section('tabla', 'Usuarios')
+    @section('tabla', 'Editar Tipo de Vivienda')
     @include('navbar')
 
     @include('cards')
@@ -17,18 +17,18 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded h-100 p-4">
                     <h6 class="mb-4">Formulario Editar Tipo de Vivienda</h6>
-                    <form action="{{ route('TipoVivienda.update', $tipoVivienda->id) }}" method="POST">
+                    <form action="{{ route('ZonasComun.update', $zonascomun->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre Zona Comun</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required value="{{ old('nombre', $tipoVivienda->nombre) }}">
+                            <input type="text" class="form-control" id="nombre" name="nombre" required value="{{ old('nombre', $zonascomun->nombre) }}">
                         </div>
 
                         <div class="mb-3">
                             <label for="estado" class="form-label">Estado</label>
-                            <input type="text" class="form-control" id="estado" name="estado" required value="{{ old('estado', $tipoVivienda->estado) }}">
+                            <input type="text" class="form-control" id="estado" name="estado" required value="{{ old('estado', $zonascomun->estado) }}">
                         </div>
 
                         <button type="submit" class="btn btn-success">Guardar Cambios</button>

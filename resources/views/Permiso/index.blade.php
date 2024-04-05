@@ -48,23 +48,24 @@
             cambiarTexto('permisoText');
         </script>
 
-            <!-- Recent Sales Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-secondary text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">TABLA PERMISO</h6>
-                        <a href="{{ route('Permiso.create') }}">
+
+        <!-- Recent Sales Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="bg-secondary text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">TABLA PERMISOS</h6>
+                    <a href="{{ route('Permiso.create') }}">
                         <i class="bi bi-plus-circle-dotted text-success fa-3x"></i>
-                        </a>
-                    </div>
-                    <div class="table-responsive">
+                    </a>
+                </div>
+                <div class="table-responsive">
                     <table class="table text-start align-middle table-bordered table-hover mb-0">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Vivienda Id</th>
                                 <th scope="col">Nombre Visitante</th>
-                                <th scope="col">Documento Visitante</th>
+                                <th scope="col">Documento visitante</th>
                                 <th scope="col">Estado</th>
                                 <th scope="col">Creado en</th>
                                 <th scope="col">Actualizado en</th>
@@ -73,16 +74,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($Permiso as $dato)
+                            @foreach($Permiso as $dato)
                             <tr>
                                 <td>{{ $dato->id }}</td>
-                                    <td>{{ $dato->vivienda_id }}</td>
-                                    <td>{{ $dato->nombre_visitante }}</td>
-                                    <td>{{ $dato->documento_visitante }}</td>
-                                    <td>{{ $dato->estado }}</td>
-                                    <td>{{ $dato->created_at }}</td>
-                                    <td>{{ $dato->updated_at }}</td>
-                                    <td>
+                                <td>{{ $dato->vivienda_id }}</td>
+                                <td>{{ $dato->nombre_visitante }}</td>
+                                <td>{{ $dato->documento_visitante}}</td>
+                                <td>{{ $dato->estado }}</td>
+                                <td>{{ $dato->created_at }}</td>
+                                <td>{{ $dato->updated_at }}</td>
+                                <td>
                                     <a href="{{ route('Permiso.edit', $dato->id) }}" class="btn btn-warning" style="display: inline-block">
                                         Editar</a>
                                 </td>
@@ -94,38 +95,38 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
 
 
-                    </div>
                 </div>
             </div>
-            <!-- Recent Sales End -->
-
-            <!-- Calendario -->
-            <div class="container-fluid pt-4 px-4">
-            <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div id="calender"></div>
-                        </div>
-                    </div>
-            </div>
-            <!-- End Calendario -->
-
-            @include('footer')
-            
         </div>
-        <!-- Content End -->
+        <!-- Recent Sales End -->
+
+        <!-- Calendario -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="col-sm-12 col-md-6 col-xl-4">
+                <div class="h-100 bg-secondary rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Calender pene</h6>
+                        <a href="">Show All</a>
+                    </div>
+                    <div id="calender"></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Calendario -->
+
+        @include('footer')
+
+    </div>
+    <!-- Content End -->
 
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->

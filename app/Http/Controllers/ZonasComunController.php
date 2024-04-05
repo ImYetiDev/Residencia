@@ -52,7 +52,7 @@ class ZonasComunController extends Controller
     public function edit(string $id)
     {
         $zonascomun = ZonasComun::find($id);
-        return redirect()->route('ZonaComun.edit');    //
+        return view ("ZonasComun.edit",compact('zonascomun'));;   //
     }
 
     /**

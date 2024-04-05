@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3" class="card" onclick="location.href='{{route('Permisos.index')}}'">
+                    <div class="col-sm-6 col-xl-3" class="card" onclick="location.href='{{route('Permiso.index')}}'">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4"
                         id="permiso">
                         <i class="bi bi-bar-chart-steps fa-3x text-success"

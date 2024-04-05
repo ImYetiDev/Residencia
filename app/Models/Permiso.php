@@ -14,4 +14,9 @@ class Permiso extends Model
         'nombre visitante',
         'documento visitante',
         'estado',];
+
+        public function vivienda()
+{
+    return $this->belongsTo(Vivienda::class);
+}
 }

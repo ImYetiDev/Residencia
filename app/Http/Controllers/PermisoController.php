@@ -21,9 +21,11 @@ class PermisoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('Permiso.Create'); //
+    public function create(){
+        $Permisos = Permiso::all();
+        $viviendas = vivienda::all();
+
+        return view('Permiso.Create', compact('Permisos','viviendas')); //
     }
 
     /**
@@ -33,12 +35,13 @@ class PermisoController extends Controller
     {
         $permiso = new Permiso();
          
+        $permiso->vivienda_id = $request->get('vivienda_id');
         $permiso->nombre_visitante = $request->get('nombre_visitante');
-           $permiso->documento_visitante = $request->get('documento visitante');
+           $permiso->documento_visitante = $request->get('documento_visitante');
            $permiso->estado = $request->get('estado');
 
            $permiso->save();
-           return redirect()->route('Permiso.index');  //
+           return redirect()->route('Permisos.index');  //
     }
 
     /**
@@ -54,8 +57,10 @@ class PermisoController extends Controller
      */
     public function edit(Permiso $permiso, $id)
     {
-        $permiso = Permiso::find($id);
-        return view ("Permiso.edit",compact('permiso')); //
+        $Permisos = Permiso::with('vivienda')->findOrFail($id);
+        $viviendas = Vivienda::all();
+
+    return view('Permiso.edit', compact('Permisos', 'viviendas'));
     }
 
     /**
@@ -70,7 +75,7 @@ class PermisoController extends Controller
            $permiso->estado = $request->get('estado');
 
            $permiso->save();
-           return redirect()->route('Permiso.index'); //
+           return redirect()->route('Permisos.index'); //
     }
 
     /**
