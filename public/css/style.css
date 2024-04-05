@@ -14,7 +14,7 @@
     z-index: 99;
 }
 
-#bloque:hover, #eventor:hover, #paquete:hover, #permiso:hover, #reserva:hover, #residente:hover, #tiposVivienda:hover, #usuario:hover, #vivienda:hover, #zonasComun:hover{
+#bloque:hover, #evento:hover, #paquete:hover, #permiso:hover, #reserva:hover, #residente:hover, #tiposVivienda:hover, #usuario:hover, #vivienda:hover, #zonasComun:hover{
 
     scale: 1.1;
     transition: 0.5s;

@@ -25,6 +25,44 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/residente', function () {
+        return view('residente');
+    });
+    Route::get('/bloque', function () {
+        return view('bloque');
+    });
+    Route::get('/evento', function () {
+        return view('evento');
+    });
+    Route::get('/paquete', function () {
+        return view('paquete');
+    });
+    Route::get('/permiso', function () {
+        return view('permiso');
+    });
+    Route::get('/reserva', function () {
+        return view('reserva');
+    });
+    Route::get('/tiposvivienda', function () {
+        return view('tiposvivienda');
+    });
+    Route::get('/usuario', function () {
+        return view('usuario');
+    });
+    Route::get('/vivienda', function () {
+        return view('vivienda');
+    });
+    Route::get('/zonascomune', function () {
+        return view('zonascomune');
+    });
+});
+
+
+
+
+
+
 Route::get('/', function () {
     if(Auth::check()){
         return redirect('residentes');}
@@ -61,39 +99,3 @@ Route::resource('TiposVivienda', TiposViviendaController::class);
 Route::resource('Usuario', UsuarioController::class);
 Route::resource('Vivienda', ViviendaController::class);
 Route::resource('ZonasComun', ZonasComunController::class);
-
-
-
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/residentes', function () {
-        return view('residentes');
-    });
-    Route::get('/bloques', function () {
-        return view('bloques');
-    });
-    Route::get('/eventos', function () {
-        return view('eventos');
-    });
-    Route::get('/paquetes', function () {
-        return view('paquetes');
-    });
-    Route::get('/permisos', function () {
-        return view('permisos');
-    });
-    Route::get('/reservas', function () {
-        return view('reservas');
-    });
-    Route::get('/tiposvivienda', function () {
-        return view('tiposvivienda');
-    });
-    Route::get('/usuarios', function () {
-        return view('usuarios');
-    });
-    Route::get('/viviendas', function () {
-        return view('viviendas');
-    });
-    Route::get('/zonascomunes', function () {
-        return view('zonascomunes');
-    });
-});

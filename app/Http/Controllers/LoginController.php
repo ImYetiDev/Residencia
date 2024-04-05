@@ -9,24 +9,24 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
-    public function register(Request $request)
+    public function register(Request $datos )
     {
 
-        $usuario['nombre'] = ucwords( strtolower($request->get('nombre')) );
-        $usuario['email'] = strtolower($request->get('email'));
-        $usuario['password'] = bcrypt($request->get('password'));
+        $usuario['nombre'] = ucwords( strtolower($datos->get('nombre')) );
+        $usuario['email'] = (strtolower($datos->get('email')) );
+        $usuario['password'] = bcrypt($datos->get('password'));
 
        Usuario::create( $usuario );
 
-       return redirect('/login');
+       return view('/login');
     }
 
-    public function check(Request $request)
+    public function check(Request $datos)
     {
-       if (Auth::attempt($request->except('_token'))) {
-        $request->session()->regenerate();
+       if (Auth::attempt($datos->except('_token'))) {
+        $datos->session()->regenerate();
 
-        return redirect()->intended('residentes');
+        return redirect()->intended('residente');
         
     }
     return back()->withErrors([
