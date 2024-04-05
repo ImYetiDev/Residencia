@@ -86,6 +86,17 @@
                             <input type="text" class="form-control" id="estado" name="estado" required>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="vivienda_id" class="form-label">Vivienda</label>
+                            <select id="vivienda_id" name="vivienda_id" class="form-control">
+                                <option disabled selected>------Seleccionar------</option>
+                                @foreach($viviendas as $vivienda)
+                                <option value="{{ $vivienda->id }}">{{ $vivienda->nomenclatura }}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+
                         <button type="submit" class="btn btn-success">Crear Residente</button>
                     </form>
 

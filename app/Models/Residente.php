@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Vivienda;
 
 class Residente extends Model
 {
@@ -19,5 +20,8 @@ class Residente extends Model
         'email_propietario',
         'estado',];
     
-        
+        public function vivienda()
+        {
+            return $this->belongsTo(Vivienda::class);
+        }
     }
