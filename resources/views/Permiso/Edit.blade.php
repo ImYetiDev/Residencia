@@ -45,14 +45,15 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded h-100 p-4">
                     <h6 class="mb-4">Editar Permiso</h6>
-                    <form action="{{ url('Permiso.update', $Permisos->id) }}" method="POST">
+                    <form action="{{ route('Permiso.update', $Permisos->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="mb-3">
                             <label for="vivienda_id" class="form-label"> Vivienda</label>
-                            <select id="vivienda_id" name="vivienda_id" class="form-control" value="{{ old('vivienda_id', $Permisos->vivienda_id) }}">
-                            <option disabled >------Seleccionar------</option>
+                            <select id="vivienda_id" name="vivienda_id" class="form-control">
+                                <option disabled selected>------Seleccionar------</option>
                                 @foreach($viviendas as $vivienda)
-                                <option value="{{ $vivienda->id }}" @if($vivienda->id == $Permisos->first()->vivienda_id)  @endif>{{ $vivienda->nomenclatura }}</option>
+                                <option value="{{ $vivienda->id }}" @if($vivienda->id == $Permisos->vivienda_id) selected @endif>{{ $vivienda->nomenclatura }}</option>
                                 @endforeach
                             </select>
 

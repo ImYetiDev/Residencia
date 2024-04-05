@@ -71,11 +71,11 @@ class PermisoController extends Controller
         $permiso = Permiso::find($id);
          
         $permiso->nombre_visitante = $request->get('nombre_visitante');
-           $permiso->documento_visitante = $request->get('documento visitante');
+           $permiso->documento_visitante = $request->get('documento_visitante');
            $permiso->estado = $request->get('estado');
 
            $permiso->save();
-           return redirect()->route('Permisos.index'); //
+           return redirect()->route('Permiso.index'); //
     }
 
     /**

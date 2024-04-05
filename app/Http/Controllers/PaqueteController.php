@@ -27,9 +27,9 @@ class PaqueteController extends Controller
     {
         
         $Paquete = Paquete::all();
-        $vivienda = vivienda::all();
+        $viviendas = vivienda::all();
 
-        return view('Paquete.Create', compact('Paquete','vivienda')); //
+        return view('Paquete.Create', compact('Paquete','viviendas')); //
     }
 
     /**

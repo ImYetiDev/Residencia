@@ -9,7 +9,7 @@ class TiposVivienda extends Model
 {
     use HasFactory;
 
-    protected $table = 'tipos_vivienda';
+    protected $table = 'tipos_viviendas';
     protected $fillable = [
         'nombre',
         'estado',];

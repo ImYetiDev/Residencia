@@ -21,8 +21,8 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label for="nomeclatura" class="form-label">Nomenclatura</label>
-                            <input type="text" class="form-control" id="nomeclatura" name="nomeclatura" required>
+                            <label for="nomenclatura" class="form-label">Nomenclatura</label>
+                            <input type="text" class="form-control" id="nomenclatura" name="nomenclatura" required>
                         </div>
 
                         <div class="mb-3">
