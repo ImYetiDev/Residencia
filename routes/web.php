@@ -26,36 +26,18 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/residente', function () {
-        return view('residente');
-    });
-    Route::get('/bloque', function () {
-        return view('bloque');
-    });
-    Route::get('/evento', function () {
-        return view('evento');
-    });
-    Route::get('/paquete', function () {
-        return view('paquete');
-    });
-    Route::get('/permiso', function () {
-        return view('permiso');
-    });
-    Route::get('/reserva', function () {
-        return view('reserva');
-    });
-    Route::get('/tiposvivienda', function () {
-        return view('tiposvivienda');
-    });
-    Route::get('/usuario', function () {
-        return view('usuario');
-    });
-    Route::get('/vivienda', function () {
-        return view('vivienda');
-    });
-    Route::get('/zonascomune', function () {
-        return view('zonascomune');
-    });
+
+
+    Route::resource('Bloque', BloqueController::class);
+    Route::resource('Evento', EventoController::class);
+    Route::resource('Paquete', PaqueteController::class);
+    Route::resource('Permiso', PermisoController::class); 
+    Route::resource('Reserva', ReservaController::class);
+    Route::resource('Residente', ResidenteController::class);
+    Route::resource('TiposVivienda', TiposViviendaController::class);
+    Route::resource('Usuario', UsuarioController::class);
+    Route::resource('Vivienda', ViviendaController::class);
+    Route::resource('ZonasComun', ZonasComunController::class);
 });
 
 
@@ -79,7 +61,7 @@ Route::get('/login', function () {
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('residentes');
-}); 
+})->name('logout');
 
 Route::get('/register', function(){
     return view('register');
@@ -89,13 +71,4 @@ Route::post('/register', [LoginController::class, 'register']);
 Route::post('/check', [LoginController::class, 'check']);
 
 
-Route::resource('Bloque', BloqueController::class);
-Route::resource('Evento', EventoController::class);
-Route::resource('Paquete', PaqueteController::class);
-Route::resource('Permiso', PermisoController::class); 
-Route::resource('Reserva', ReservaController::class);
-Route::resource('Residente', ResidenteController::class);
-Route::resource('TiposVivienda', TiposViviendaController::class);
-Route::resource('Usuario', UsuarioController::class);
-Route::resource('Vivienda', ViviendaController::class);
-Route::resource('ZonasComun', ZonasComunController::class);
+
