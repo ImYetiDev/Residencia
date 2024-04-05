@@ -1,4 +1,4 @@
-@section('title', 'Usuarios')
+@section('title', 'Editar Vivienda')
 @include('header')
 
 <body>
@@ -6,17 +6,45 @@
     @include('sidebar')
 
 
-    @section('tabla', 'Usuarios')
+    @section('tabla', 'Editar Vivienda')
     @include('navbar')
 
     @include('cards')
+
+    <script>
+            function cambiarFondo(selected) {
+                var selected = document.getElementById(selected);
+
+                // Cambiar el fondo del elemento
+                selected.classList.remove('bg-secondary');
+                selected.classList.add('bg-success');
+            }
+
+            function cambiarIcono(icon) {
+                var icon = document.getElementById(icon);
+
+                // Cambiar el icono de color
+                icon.classList.remove('text-success');
+                icon.classList.add('text-secondary');
+            }
+
+            function cambiarTexto(texto) {
+                // Obtener el texto y cambiar su color
+                var texto = document.getElementById(texto);
+                texto.classList.add('text-dark');
+            }
+
+            cambiarFondo('vivienda');
+            cambiarIcono('viviendaIcon');
+            cambiarTexto('viviendaText');
+        </script>
 
     <!-- Recent Sales Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="bg-secondary text-center rounded p-4">
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded h-100 p-4">
-                    <h6 class="mb-4">Formulario Editar Vivienda</h6>
+                    <h6 class="mb-4">Editar Vivienda</h6>
                     <form action="{{ route('Vivienda.update', $Viviendas->id) }}" method="POST">
                         @csrf
                         @method('PUT')
@@ -37,12 +65,14 @@
 
                         </div>
 
-
-
-
                         <div class="mb-3">
                             <label for="estado" class="form-label">Estado</label>
                             <input type="text" class="form-control" id="estado" name="estado" required value="{{ old('estado', $Viviendas->estado) }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" required value="{{ old('telefono', $Viviendas->telefono) }}">
                         </div>
 
                         <button type="submit" class="btn btn-success">Guardar Cambios</button>

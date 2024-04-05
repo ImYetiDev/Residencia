@@ -13,11 +13,10 @@ class Residente extends Model
     protected $fillable = [
         'nombre',
         'movil',
-        'vivienda id',
-        'Propietario',
-        'nombre propietario',
-        'movil propietario',
-        'email propietario',
+        'propietario',
+        'nombre_propietario',
+        'movil_propietario',
+        'email_propietario',
         'estado',];
     
         

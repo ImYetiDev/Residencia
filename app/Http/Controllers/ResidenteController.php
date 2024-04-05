@@ -34,11 +34,10 @@ class ResidenteController extends Controller
          
         $residente->nombre = $request->get('nombre');
            $residente->movil = $request->get('movil');
-           $residente->vivienda_id = $request->get('vivienda id');
-           $residente->Propietario = $request->get('Propietario');
-           $residente->nombre_propietario = $request->get('nombre propietario');
-           $residente->movil_propietario = $request->get('movil propietario');
-           $residente->email_propietario = $request->get('email propietario');
+           $residente->propietario = $request->get('propietario');
+           $residente->nombre_propietario = $request->get('nombre_propietario');
+           $residente->movil_propietario = $request->get('movil_propietario');
+           $residente->email_propietario = $request->get('email_propietario');
            $residente->estado = $request->get('estado');
 
            $residente->save();
@@ -71,13 +70,11 @@ class ResidenteController extends Controller
          
         $residente->nombre = $request->get('nombre');
         $residente->movil = $request->get('movil');
-        $residente->vivienda_id = $request->get('vivienda id');
-        $residente->Propietario = $request->get('Propietario');
-        $residente->nombre_propietario = $request->get('nombre propietario');
-        $residente->movil_propietario = $request->get('movil propietario');
-        $residente->email_propietario = $request->get('email propietario');
+        $residente->propietario = $request->get('propietario');
+        $residente->nombre_propietario = $request->get('nombre_propietario');
+        $residente->movil_propietario = $request->get('movil_propietario');
+        $residente->email_propietario = $request->get('email_propietario');
         $residente->estado = $request->get('estado');
-        $residente->remember_token = $request->get('remember_token');
 
            $residente->save();
            return redirect()->route('Residente.index'); //

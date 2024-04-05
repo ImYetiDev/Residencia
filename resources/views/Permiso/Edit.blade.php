@@ -49,7 +49,7 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
-                            <label for="vivienda_id" class="form-label"> Vivienda</label>
+                        <label for="vivienda_id" class="form-label"> Vivienda</label>
                             <select id="vivienda_id" name="vivienda_id" class="form-control">
                                 <option disabled selected>------Seleccionar------</option>
                                 @foreach($viviendas as $vivienda)
@@ -76,7 +76,7 @@
                             <input type="text" class="form-control" id="estado" name="estado" required value="{{ old('estado', $Permisos->estado) }}">
                         </div>
 
-                        <button type="submit" class="btn btn-warning">Crear Permiso</button>
+                        <button type="submit" class="btn btn-success">Crear Permiso</button>
                     </form>
 
 

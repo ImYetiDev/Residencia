@@ -1,4 +1,4 @@
-@section('title', 'Usuarios')
+@section('title', 'Editar Tipos Viviendas')
 @include('header')
 
 <body>
@@ -6,34 +6,57 @@
     @include('sidebar')
 
 
-    @section('tabla', 'Usuarios')
+    @section('tabla', 'Editar Tipos Viviendas')
     @include('navbar')
 
     @include('cards')
+
+    <script>
+            function cambiarFondo(selected) {
+                var selected = document.getElementById(selected);
+
+                // Cambiar el fondo del elemento
+                selected.classList.remove('bg-secondary');
+                selected.classList.add('bg-success');
+            }
+
+            function cambiarIcono(icon) {
+                var icon = document.getElementById(icon);
+
+                // Cambiar el icono de color
+                icon.classList.remove('text-success');
+                icon.classList.add('text-secondary');
+            }
+
+            function cambiarTexto(texto) {
+                // Obtener el texto y cambiar su color
+                var texto = document.getElementById(texto);
+                texto.classList.add('text-dark');
+            }
+
+            cambiarFondo('tiposVivienda');
+            cambiarIcono('tiposViviendaIcon');
+            cambiarTexto('tiposViviendaText');
+        </script>
 
     <!-- Recent Sales Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="bg-secondary text-center rounded p-4">
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded h-100 p-4">
-                    <h6 class="mb-4">Formulario Editar Vivienda</h6>
-                    <form action="{{ route('Vivienda.update', $vivienda->id) }}" method="POST">
+                    <h6 class="mb-4">Editar Tipo de Vivienda</h6>
+                    <form action="{{ route('TiposVivienda.update', $TiposVivienda->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="mb-3">
-                            <label for="nomenclatura" class="form-label">Nomenclatura</label>
-                            <input type="text" class="form-control" id="nomenclatura" name="nomenclatura" required value="{{ old('nomenclatura', $vivienda->nomenclatura) }}">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="bloque_id" class="form-label">ID de Bloque</label>
-                            <input type="number" class="form-control" id="bloque_id" name="bloque_id" required value="{{ old('bloque_id', $vivienda->bloque_id) }}">
+                            <label for="nombre" class="form-label">Nombre del Tipo de Vivienda</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required value="{{ old('nombre', $TiposVivienda->nombre) }}">
                         </div>
 
                         <div class="mb-3">
                             <label for="estado" class="form-label">Estado</label>
-                            <input type="text" class="form-control" id="estado" name="estado" required value="{{ old('estado', $vivienda->estado) }}">
+                            <input type="text" class="form-control" id="estado" name="estado" required value="{{ old('estado', $TiposVivienda->estado) }}">
                         </div>
 
                         <button type="submit" class="btn btn-success">Guardar Cambios</button>

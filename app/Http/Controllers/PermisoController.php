@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Vivienda;
 use App\Models\Permiso;
 use Illuminate\Http\Request;
@@ -14,18 +15,19 @@ class PermisoController extends Controller
     {
         $Permiso = Permiso::all();
         $Vivienda = Vivienda::all();
-        
-        return view('Permiso.index', compact('Permiso','Vivienda'));
+
+        return view('Permiso.index', compact('Permiso', 'Vivienda'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(){
+    public function create()
+    {
         $Permisos = Permiso::all();
         $viviendas = vivienda::all();
 
-        return view('Permiso.Create', compact('Permisos','viviendas')); //
+        return view('Permiso.Create', compact('Permisos', 'viviendas')); //
     }
 
     /**
@@ -34,14 +36,14 @@ class PermisoController extends Controller
     public function store(Request $request)
     {
         $permiso = new Permiso();
-         
+
         $permiso->vivienda_id = $request->get('vivienda_id');
         $permiso->nombre_visitante = $request->get('nombre_visitante');
-           $permiso->documento_visitante = $request->get('documento_visitante');
-           $permiso->estado = $request->get('estado');
+        $permiso->documento_visitante = $request->get('documento_visitante');
+        $permiso->estado = $request->get('estado');
 
-           $permiso->save();
-           return redirect()->route('Permisos.index');  //
+        $permiso->save();
+        return redirect()->route('Permisos.index');  //
     }
 
     /**
@@ -60,7 +62,7 @@ class PermisoController extends Controller
         $Permisos = Permiso::with('vivienda')->findOrFail($id);
         $viviendas = Vivienda::all();
 
-    return view('Permiso.edit', compact('Permisos', 'viviendas'));
+        return view('Permiso.edit', compact('Permisos', 'viviendas'));
     }
 
     /**
@@ -69,13 +71,14 @@ class PermisoController extends Controller
     public function update(Request $request, Permiso $permiso, $id)
     {
         $permiso = Permiso::find($id);
-         
-        $permiso->nombre_visitante = $request->get('nombre_visitante');
-           $permiso->documento_visitante = $request->get('documento_visitante');
-           $permiso->estado = $request->get('estado');
 
-           $permiso->save();
-           return redirect()->route('Permiso.index'); //
+        $permiso->vivienda_id = $request->get('vivienda_id');
+        $permiso->nombre_visitante = $request->get('nombre_visitante');
+        $permiso->documento_visitante = $request->get('documento_visitante');
+        $permiso->estado = $request->get('estado');
+
+        $permiso->save();
+        return redirect()->route('Permiso.index'); //
     }
 
     /**

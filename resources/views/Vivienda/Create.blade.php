@@ -1,4 +1,4 @@
-@section('title', 'Usuarios')
+@section('title', 'Crear Vivienda')
 @include('header')
 
 <body>
@@ -6,17 +6,45 @@
     @include('sidebar')
 
 
-    @section('tabla', 'Usuarios')
+    @section('tabla', 'Crear Vivienda')
     @include('navbar')
 
     @include('cards')
+
+    <script>
+            function cambiarFondo(selected) {
+                var selected = document.getElementById(selected);
+
+                // Cambiar el fondo del elemento
+                selected.classList.remove('bg-secondary');
+                selected.classList.add('bg-success');
+            }
+
+            function cambiarIcono(icon) {
+                var icon = document.getElementById(icon);
+
+                // Cambiar el icono de color
+                icon.classList.remove('text-success');
+                icon.classList.add('text-secondary');
+            }
+
+            function cambiarTexto(texto) {
+                // Obtener el texto y cambiar su color
+                var texto = document.getElementById(texto);
+                texto.classList.add('text-dark');
+            }
+
+            cambiarFondo('vivienda');
+            cambiarIcono('viviendaIcon');
+            cambiarTexto('viviendaText');
+        </script>
 
     <!-- Recent Sales Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="bg-secondary text-center rounded p-4">
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded h-100 p-4">
-                    <h6 class="mb-4">Formulario de Viviendas</h6>
+                    <h6 class="mb-4">Crear Viviendas</h6>
                     <form action="{{ url('Vivienda')}}" method="POST">
                         @csrf
 
@@ -26,11 +54,11 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="vivienda_id" class="form-label">Bloque</label>
-                            <select id="vivienda_id" name="vivienda_id" class="form-control">
+                        <label for="bloque_id" class="form-label">Vivienda</label>
+                            <select id="bloque_id" name="bloque_id" class="form-control">
                                 <option disabled selected>------Seleccionar------</option>
-                                @foreach($Vivienda as $vivienda)
-                                <option value="{{ $vivienda->bloque->id }}">{{ $vivienda->bloque->nombre }}</option>
+                                @foreach($bloque as $bloques)
+                                <option value="{{ $bloques->id }}">{{ $bloques->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>

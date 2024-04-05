@@ -72,7 +72,7 @@
                                 <input type="text" class="form-control" id="estado" name="estado" required>
                             </div>
 
-                            <button type="submit" class="btn btn-warning">Crear Permiso</button>
+                            <button type="submit" class="btn btn-success">Crear Permiso</button>
                     </form>
 
 

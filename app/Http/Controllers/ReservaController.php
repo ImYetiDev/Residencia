@@ -17,7 +17,7 @@ class ReservaController extends Controller
         $Reserva = Reserva::all();
         $zonasComun = ZonasComun::all();
         $residente = Residente::all();
-        
+
         return view('Reserva.index', compact('Reserva', 'zonasComun', 'residente'));
     }
 
@@ -29,7 +29,7 @@ class ReservaController extends Controller
         $Reserva = Reserva::all();
         $zonas_comunes = ZonasComun::all();
         $residentes = Residente::all();
-        
+
         return view('Reserva.Create', compact('Reserva', 'zonas_comunes', 'residentes'));
     }
 
@@ -39,14 +39,15 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         $reserva = new Reserva();
-         
-        $reserva->zona_comun_id = $request->get('zona_comun_id');
-           $reserva->fecha_reserva = $request->get('fecha_reserva');
-           $reserva->hora_reserva = $request->get('hora_reserva');
-           $reserva->estado = $request->get('estado');
 
-           $reserva->save();
-           return redirect()->route('Reserva.index'); //
+        $reserva->zona_comun_id = $request->get('zona_comun_id');
+        $reserva->residente_id = $request->get('residente_id');
+        $reserva->fecha_reserva = $request->get('fecha_reserva');
+        $reserva->hora_reserva = $request->get('hora_reserva');
+        $reserva->estado = $request->get('estado');
+
+        $reserva->save();
+        return redirect()->route('Reserva.index'); //
     }
 
     /**
@@ -65,8 +66,8 @@ class ReservaController extends Controller
         $reserva = Reserva::with('residente', 'Zonas_comun')->findOrFail($id);
         $zonas_comunes = ZonasComun::all();
         $residentes = Residente::all();
-        
-        return view ("Reserva.edit", compact('reserva', 'zonas_comunes', 'residentes'));
+
+        return view("Reserva.edit", compact('reserva', 'zonas_comunes', 'residentes'));
     }
 
     /**
@@ -75,14 +76,15 @@ class ReservaController extends Controller
     public function update(Request $request, Reserva $reserva, $id)
     {
         $reserva = Reserva::find($id);
-         
+
         $reserva->zona_comun_id = $request->get('zona_comun_id');
+        $reserva->residente_id = $request->get('residente_id');
         $reserva->fecha_reserva = $request->get('fecha_reserva');
         $reserva->hora_reserva = $request->get('hora_reserva');
         $reserva->estado = $request->get('estado');
 
-           $reserva->save();
-           return redirect()->route('Reserva.index'); //
+        $reserva->save();
+        return redirect()->route('Reserva.index'); //
     }
 
     /**

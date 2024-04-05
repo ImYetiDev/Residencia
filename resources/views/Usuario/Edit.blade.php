@@ -11,6 +11,34 @@
 
     @include('cards')
 
+    <script>
+            function cambiarFondo(selected) {
+                var selected = document.getElementById(selected);
+
+                // Cambiar el fondo del elemento
+                selected.classList.remove('bg-secondary');
+                selected.classList.add('bg-success');
+            }
+
+            function cambiarIcono(icon) {
+                var icon = document.getElementById(icon);
+
+                // Cambiar el icono de color
+                icon.classList.remove('text-success');
+                icon.classList.add('text-secondary');
+            }
+
+            function cambiarTexto(texto) {
+                // Obtener el texto y cambiar su color
+                var texto = document.getElementById(texto);
+                texto.classList.add('text-dark');
+            }
+
+            cambiarFondo('usuario');
+            cambiarIcono('usuarioIcon');
+            cambiarTexto('usuarioText');
+        </script>
+
 <!-- Recent Sales Start -->
 		<div class="container-fluid pt-4 px-4">
       <div class="bg-secondary text-center rounded p-4">

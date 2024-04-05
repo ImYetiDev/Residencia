@@ -1,4 +1,4 @@
-@section('title', 'Usuarios')
+@section('title', 'Crear Tipo Vivienda')
 @include('header')
 
 <body>
@@ -6,28 +6,51 @@
     @include('sidebar')
 
 
-    @section('tabla', 'Usuarios')
+    @section('tabla', 'Crear Tipo Vivienda')
     @include('navbar')
 
     @include('cards')
+
+    <script>
+            function cambiarFondo(selected) {
+                var selected = document.getElementById(selected);
+
+                // Cambiar el fondo del elemento
+                selected.classList.remove('bg-secondary');
+                selected.classList.add('bg-success');
+            }
+
+            function cambiarIcono(icon) {
+                var icon = document.getElementById(icon);
+
+                // Cambiar el icono de color
+                icon.classList.remove('text-success');
+                icon.classList.add('text-secondary');
+            }
+
+            function cambiarTexto(texto) {
+                // Obtener el texto y cambiar su color
+                var texto = document.getElementById(texto);
+                texto.classList.add('text-dark');
+            }
+
+            cambiarFondo('tiposVivienda');
+            cambiarIcono('tiposViviendaIcon');
+            cambiarTexto('tiposViviendaText');
+        </script>
 
     <!-- Recent Sales Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="bg-secondary text-center rounded p-4">
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded h-100 p-4">
-                    <h6 class="mb-4">Formulario de Viviendas</h6>
-                    <form action="{{ url('Vivienda')}}" method="POST">
+                    <h6 class="mb-4"Crear Tipo de Vivienda</h6>
+                    <form action="{{ url('TiposVivienda')}}" method="POST">
                         @csrf
 
                         <div class="mb-3">
-                            <label for="nomeclatura" class="form-label">Nomenclatura</label>
-                            <input type="text" class="form-control" id="nomeclatura" name="nomeclatura" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="bloque_id" class="form-label">ID de Bloque</label>
-                            <input type="number" class="form-control" id="bloque_id" name="bloque_id" required>
+                            <label for="nombre" class="form-label">Nombre del Tipo de Vivienda</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
                         </div>
 
                         <div class="mb-3">
@@ -35,13 +58,10 @@
                             <input type="text" class="form-control" id="estado" name="estado" required>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="telefono" name="telefono">
-                        </div>
-
-                        <button type="submit" class="btn btn-secondary">Crear Vivienda</button>
+                        <button type="submit" class="btn btn-success">Crear Tipo de Vivienda</button>
                     </form>
+
+
 
                 </div>
             </div>

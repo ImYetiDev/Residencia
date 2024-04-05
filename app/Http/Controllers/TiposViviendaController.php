@@ -52,7 +52,7 @@ class TiposViviendaController extends Controller
      */
     public function edit(TiposVivienda $tipos_vivienda, $id)
     {
-        $tipos_vivienda = TiposVivienda::all();
+        $TiposVivienda = TiposVivienda::find($id);
         return view ("TiposVivienda.edit",compact('TiposVivienda'));  //
     }
 
